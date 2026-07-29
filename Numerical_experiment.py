@@ -14,7 +14,7 @@ Method: two-stage finite difference scheme of second-order accuracy.
 
 Test problem:
     u_xxyy - 4*u_yy = y,   D = (0, 0.9) x (0, 1)
-    phi1(y) = y^2,  phi2(y) = y^3,  psi(x) = x^2,  lambda(x) = x
+    phi1(y) = y^2,  phi2(y) = y^3 + 1,  psi(x) = x^2,  lambda(x) = x
 
 Author: Arkabaev N.K.
 """
@@ -39,8 +39,8 @@ def phi1(y):
     return y**2
 
 def phi2(y):
-    """u_x(0, y)"""
-    return y**3
+    """u_x(0, y)"""  # corrected boundary datum: phi2(y) = y^3 + 1
+    return y**3 + 1.0
 
 def psi(x):
     """u_y(x, 0)"""
@@ -186,7 +186,7 @@ def main():
     print("  NUMERICAL SOLUTION OF THE NONLOCAL PROBLEM")
     print("  u_xxyy - 4*u_yy = y")
     print(f"  Domain: D = (0, {ell}) x (0, {h_domain})")
-    print(f"  lambda(x) = x, phi1(y) = y^2, phi2(y) = y^3, psi(x) = x^2")
+    print(f"  lambda(x) = x, phi1(y) = y^2, phi2(y) = y^3 + 1, psi(x) = x^2")
     print("=" * 70)
 
     # --- Table 1: convergence ---

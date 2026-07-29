@@ -16,7 +16,7 @@ def phi1(y):
     return y**2
 
 def phi2(y):
-    return y**3
+    return y**3 + 1.0
 
 def psi_f(x):
     return x**2
